@@ -28,6 +28,7 @@ public class AppEngine extends AppCompatActivity implements LocationListener{
     protected boolean gps_enabled,network_enabled;
     private final Activity thisActivity = this;
     int i=0;
+    int j=0;
 
     // Assume thisActivity is the current activity
     //int permissionCheck = ContextCompat.checkSelfPermission(AppEngine,
