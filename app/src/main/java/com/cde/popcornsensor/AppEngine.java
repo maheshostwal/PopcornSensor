@@ -17,7 +17,7 @@ import android.util.Log;
 
 public class AppEngine extends AppCompatActivity implements LocationListener{
 
-    //private static final int MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION;
+    //private static final int MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION ;
     protected LocationManager locationManager;
     protected LocationListener locationListener;
     protected Context context;
@@ -26,11 +26,10 @@ public class AppEngine extends AppCompatActivity implements LocationListener{
     String provider;
     protected String latitude,longitude;
     protected boolean gps_enabled,network_enabled;
-    private final Activity thisActivity = this;
+    //private final Activity thisActivity = this;
 
     // Assume thisActivity is the current activity
-    //int permissionCheck = ContextCompat.checkSelfPermission(AppEngine,
-      //      android.Manifest.permission.ACCESS_FINE_LOCATION);
+    //int permissionCheck = ContextCompat.checkSelfPermission(thisActivity, android.Manifest.permission.ACCESS_FINE_LOCATION);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,19 +41,20 @@ public class AppEngine extends AppCompatActivity implements LocationListener{
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
 
-        /*if (ContextCompat.checkSelfPermission(AppEngine,
+        /*if (ContextCompat.checkSelfPermission(thisActivity,
                 Manifest.permission.ACCESS_FINE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED) {
+                != PackageManager.PERMISSION_GRANTED) {*/
 
-            AppCompatActivity.requestPermissions(AppEngine,
-                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-                    MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);*/
+            //AppCompatActivity.requestPermissions(thisActivity,
+              //      new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                //    MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
 
             // MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION is an
             // app-defined int constant. The callback method gets the
             // result of the request.
-        //}
-    }
+        //
+            }
+    //}
 
     @Override
     public void onLocationChanged(Location location) {
@@ -77,8 +77,8 @@ public class AppEngine extends AppCompatActivity implements LocationListener{
         Log.d("Latitude","status");
     }
 
-    /*@Override
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+    //@Override
+    /*public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         switch (requestCode) {
             case MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION: {
                 // If request is cancelled, the result arrays are empty.
